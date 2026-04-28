@@ -1,0 +1,6 @@
+,city,temp,temp min,temp max,wind speed,humidity,describtion,sea level,pressure,date
+0,Sanaa,200.12,180.1,221.32,111.34,90.48,Clearly sky,1019,800,2026-04-24
+0,Sanaa,180.55,168.78,191.34,183.55,60.28,Clearly sky,1019,800,2026-04-25
+0,Sanaa,177.42,170.03,180.41,111.34,90.48,Clearly sky,1019,800,2026-04-26
+0,Sanaa,293.66,293.66,293.66,1.55,39,clear sky,1014,1014,2026-04-27
+0,Sanaa,292.03,292.03,292.03,1.53,46,light rain,1013,1013,2026-04-28

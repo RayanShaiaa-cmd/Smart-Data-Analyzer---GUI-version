@@ -1,0 +1,4 @@
+,city,temp,temp min,temp max,wind speed,humidity,describtion,sea level,pressure,date
+0,London,200.12,180.1,221.32,111.34,90.48,Clearly sky,1019,800,2026-04-26
+0,London,290.08,289.1,291.21,3.09,48,overcast clouds,1022,1022,2026-04-27
+0,London,11.78,10.87,12.98,3.6,76,overcast clouds,1023,1023,2026-04-28
