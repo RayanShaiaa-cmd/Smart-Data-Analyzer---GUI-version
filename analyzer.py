@@ -1,10 +1,12 @@
 import dotenv as env
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from DateValidator import get_valid_date
 import requests as req
 import pandas as pd
 import generate_report_insight as gri
+import matplotlib.pyplot as plt
+
 
 # for download the privates variables
 env.load_dotenv()
@@ -18,6 +20,8 @@ if not os.path.exists("data"):
     os.mkdir("data")
     print('Create Folder "data" for storing weather`s data')
 
+data = pd.read_csv(f"data/{city}.csv")
+
 
 # UI Layer
 while True:
@@ -26,7 +30,7 @@ while True:
         f"--------------{city}------------- \n"
         "1.Display information of this day \n"
         "2.Display information of specefic day \n"
-        "3.Display information of period of days \n"
+        "3.Display information of previous days \n"
         "4.Display prediction information for future days \n"
         "5.Save today`s information for this country \n"
         "6.Exit"
@@ -35,34 +39,60 @@ while True:
     choice = input("Enter : ").strip()
 
     if choice == "1":
-        data = pd.read_csv(f"data/{city}.csv")
         current_date = datetime.strftime(datetime.now(), "%Y-%m-%d")
 
         result = data[data["date"] == current_date]
-        
+
         if result.empty:
             print("Please, save the data first.")
         else:
-                gri.generate_report(result)
+            gri.generate_report(result)
 
     elif choice == "2":
-        data = pd.read_csv(f"data/{city}.csv")
         user_date = input("Enter date by format (yyyy-mm-dd) : ")
 
-        result = data[data["date"] == current_date]
-        
+        result = data[data["date"] == user_date]
+
         if result.empty:
             print(f"Please, we don`t find the data of {user_date}")
         else:
-                gri.generate_report(result)
+            gri.generate_report(result)
 
     elif choice == "3":
-        start_date = get_valid_date("Enter The start date : ")
-        end_date = get_valid_date("Enter the end date : ")
+        gri.generate_report_previous_data(data)
 
-        if start_date > end_date:
-            print("The start and end date has been exchange")
-            start_date, end_date = end_date, start_date
+    elif choice == "4":
+        # APIs Codes
+        latitude = float(input("Enter latitude : "))  # 48.85
+        longitude = float(input("Enter longitude : "))  # 2.35
+
+        today = datetime.now()
+        week_ago = today - timedelta(days=7)
+
+        start_date = week_ago.strftime("%Y-%m-%d")
+        end_date = today.strftime("%Y-%m-%d")
+
+        url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=temperature_2m_max,temperature_2m_min"
+
+        response = req.get(url)
+
+        data = response.json()
+        daily_data = data["daily"]
+
+        # ---------------------------------------------
+        # Analitics code
+
+        df = pd.DataFrame(
+            {
+                "time": daily_data["time"],
+                "max_temperature": daily_data["temperature_2m_max"],
+                "min_temperature": daily_data["temperature_2m_min"],
+            }
+        )
+
+        df["time"] = pd.to_datetime(df["time"])
+
+        gri.generate_future_report(df)
 
     elif choice == "5":
         # To make APIs connection
