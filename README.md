@@ -104,14 +104,24 @@ pip install -r requirements.txt
 ```
 
 ---
-
 ## 🔑 Environment Setup
 
 Create a `.env` file:
 
-```id="rmk46t"
+```bash
 API_KEY=your_openweathermap_api_key
 ```
+
+### 🔐 How to get your API Key
+
+1. Go to **https://openweathermap.org/**
+2. Create a free account (Sign Up)
+3. After logging in, enter Your name in a navigation bar
+4. Enter My API Keys
+5. Enter generate api key
+5. Copy the key which you created it and paste it into your `.env` file
+
+> ⏱️ Note: The API key may take a few minutes to activate after creation.
 
 ---
 
@@ -120,6 +130,7 @@ API_KEY=your_openweathermap_api_key
 ```bash id="vszkq9"
 streamlit run app.py
 ```
+at the terminal inside the folder of the program
 
 ---
 
