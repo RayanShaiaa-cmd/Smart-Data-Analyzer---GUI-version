@@ -105,8 +105,9 @@ weather-ai-dashboard/
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/your-username/weather-ai-dashboard.git
-cd weather-ai-dashboard
+git clone https://github.com/RayanShaiaa-cmd/Smart-Data-Analyzer---GUI-version.git
+cd Smart-Data-Analyzer---GUI-version
+code . (write it in terminal to open the program in vs code)
 pip install -r requirements.txt
 
 
@@ -117,7 +118,8 @@ API_KEY=your_openweathermap_api_key
 ▶️ Run the Project
 streamlit run app.py
 
-📊 Dashboard Modules
+
+##📊 Dashboard Modules
 1. Today's Report
 Live weather metrics
 Quick visual summary
@@ -132,28 +134,33 @@ Statistical insights
 4. Forecast Analysis
 Future temperature prediction
 Line chart visualization
-📈 Example Output
+
+
+##📈 Example Output
 Interactive dashboard
 Line charts (temperature trends)
 Bar charts (weather comparison)
 Forecast curves
-⚠️ Known Issues
+
+##⚠️ Known Issues
 No cloud database (CSV only)
 Requires valid API key
 Limited error handling for API failures
-🔧 Future Improvements
+
+##🔧 Future Improvements
 Add Machine Learning forecasting model
 Replace CSV with PostgreSQL database
 Add authentication system
 Deploy to Streamlit Cloud
 Build mobile-friendly UI
 Add multi-city comparison dashboard
-👨‍💻 Author
+
+##👨‍💻 Author
 
 Rayan Shaiaa
 AI & Data Science Student | Machine Learning Enthusiast
 
-⭐ Why This Project Matters
+##⭐ Why This Project Matters
 
 This project demonstrates:
 
