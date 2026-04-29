@@ -128,7 +128,6 @@ API_KEY=your_openweathermap_api_key
 ## ▶️ Run the Application
 
 ```bash id="vszkq9"
-streamlit run app.py
 ```
 at the terminal inside the folder of the program
 

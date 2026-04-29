@@ -10,5 +10,4 @@ wheels/
 .venv
 .env
 __pycache__/
-data/*.csv
 *.png
